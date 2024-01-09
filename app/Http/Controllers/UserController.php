@@ -49,7 +49,7 @@ class UserController extends Controller
 
         return response()->json([
             'token' => $token->plainTextToken,
-            'dashboardRoute' => ($role === 'admin') ? 'admindashboard' : 'userdashboard',
+            'dashboardRoute' => ($role === 'admin') ? 'dashboard' : 'userdashboard',
             'user' => $user->only(['id', 'name', 'email', 'role']),
         ]);
     }
