@@ -11,10 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum')->only(['index', 'show', 'update', 'destroy']);
-    }
+
 
     public function index()
     {
@@ -102,5 +99,11 @@ class UserController extends Controller
         $user->delete();
 
         return response()->json(['message' => 'User deleted successfully'], 200);
+    }
+    public function getNumberOfUsers()
+    {
+        $numberOfUsers = User::count();
+
+        return response()->json(['number_of_users' => $numberOfUsers]);
     }
 }
